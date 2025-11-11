@@ -18,7 +18,7 @@ class _ProfileViewState extends State<ProfileView> {
 
   Usercomment? replyingTo;
 
-  // ✅ Add new comment
+
   void addComment() {
     if (commentController.text.trim().isEmpty) return;
 
@@ -36,7 +36,7 @@ class _ProfileViewState extends State<ProfileView> {
     commentController.clear();
   }
 
-  // ✅ Add reply to comment
+  
   void addReply(Usercomment parentComment) {
     if (replyController.text.trim().isEmpty) return;
 
@@ -62,7 +62,7 @@ class _ProfileViewState extends State<ProfileView> {
     replyingTo = null;
   }
 
-  // ✅ Like/unlike toggle
+  
   void toggleLike(Usercomment comment) {
     setState(() {
       comment.isLiked = !comment.isLiked;
@@ -70,7 +70,7 @@ class _ProfileViewState extends State<ProfileView> {
     });
   }
 
-  // ✅ Reply builder
+ 
   Widget buildReply(Usercomment reply) {
     return Padding(
       padding: const EdgeInsets.only(left: 60.0, bottom: 8.0),
@@ -196,7 +196,7 @@ class _ProfileViewState extends State<ProfileView> {
               padding: const EdgeInsets.only(left: 60.0, right: 8.0, bottom: 10.0),
               child: Row(
                 children: [
-                  Expanded(
+                  Expanded( 
                     child: TextField(
                       controller: replyController,
                       autofocus: true,
@@ -219,7 +219,7 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 
-  // ✅ Buttons under the post (moved here)
+
   Widget postButtons() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -250,7 +250,7 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 
-  // ✅ Build the screen
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -268,25 +268,21 @@ class _ProfileViewState extends State<ProfileView> {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                // ✅ POST HEADER
                 ListTile(
                   leading: CircleAvatar(backgroundImage: AssetImage(widget.userPost.userimg)),
                   title: Text(widget.userPost.username, style: const TextStyle(fontWeight: FontWeight.bold)),
                   subtitle: Text(widget.userPost.time),
                 ),
-                // ✅ POST CONTENT
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(widget.userPost.postcontent),
                 ),
                 Image.asset(widget.userPost.postimg),
 
-                // ✅ BUTTONS moved here (below post)
                 const Divider(),
                 postButtons(),
                 const Divider(),
 
-                // ✅ COMMENTS SECTION
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text('Comments', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -297,7 +293,7 @@ class _ProfileViewState extends State<ProfileView> {
             ),
           ),
 
-          // ✅ COMMENT INPUT FIELD (still at the bottom)
+          
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             color: Colors.grey.shade100,
